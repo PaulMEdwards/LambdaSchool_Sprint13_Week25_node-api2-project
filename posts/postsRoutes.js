@@ -261,7 +261,7 @@ router.put('/:postId', (req, res) => {
 
   const { postId } = req.params;
 
-  // console.log(`PUT ${apiBase}/:postId update():\n`, req);
+  // console.log(`PUT ${apiBase}/:postId update(${postId}):\n`, req);
 
   if (!req.body.title || !req.body.contents) {
     res.status(400).json({ success: false, errorMessage: "Please provide title and contents for the post." });
@@ -302,7 +302,27 @@ router.delete('/:postId', (req, res) => {
   */
   //#endregion Delete Post by ID Summary
 
-  console.log(`GET ${apiBase}/:postId remove():\n`, req);
+  const { postId } = req.params;
+
+  // console.log(`GET ${apiBase}/:postId remove(${postId}):\n`, req);
+
+  db.findById(postId)
+    .then(post => {
+      if (post) {
+        db.remove(postId, req.body)
+          .then(postIdRemoved => {
+            console.log(`DELETE /api/users/:postId remove(${postId}): \n`, postIdRemoved);
+            if (postIdRemoved) {
+              res.status(200).json({ success: true, postIdRemoved: parseInt(postId, 10) });
+            }
+          })
+          .catch(err => {
+            res.status(500).json({ success: false, errorMessage: "The post could not be removed." });
+          });
+      } else {
+        res.status(404).json({ success: false, errorMessage: "The post with the specified ID does not exist." });
+      }
+    });
 });
 
 module.exports = router;
