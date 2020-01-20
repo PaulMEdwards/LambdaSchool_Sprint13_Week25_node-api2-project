@@ -1,0 +1,2384 @@
+{
+	"info": {
+		"_postman_id": "71e3f5b3-0979-47c7-a6e8-9db325e59637",
+		"name": "LS_Sp13_Wk25_node-api2-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "POST /api/posts (missing title)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8b6bd3b5-3913-4ebd-937c-93f56dae29a5",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Failure', () => {",
+									"    pm.response.to.have.status(400);",
+									"    pm.expect(res.success).to.equal(false);",
+									"});",
+									"",
+									"pm.test('Data Size', () => {",
+									"    pm.expect(res.post).to.be.undefined;",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.errorMessage).to.equal(\"Please provide title and contents for the post.\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"contents\": \"Test Contents\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /api/posts (missing title)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"contents\": \"Test Contents\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-JMDiJSvAyHv2SbS8ro05Wv0jIwU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 06:49:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"Please provide title and contents for the post.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST /api/posts (missing contents)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "436b995e-3b63-41da-a602-8b971eaeb864",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Failure', () => {",
+									"    pm.response.to.have.status(400);",
+									"    pm.expect(res.success).to.equal(false);",
+									"});",
+									"",
+									"pm.test('Data Size', () => {",
+									"    pm.expect(res.post).to.be.undefined;",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.errorMessage).to.equal(\"Please provide title and contents for the post.\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Test Title\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /api/posts (missing contents)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"Test Title\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-JMDiJSvAyHv2SbS8ro05Wv0jIwU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 06:50:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"Please provide title and contents for the post.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST /api/posts (valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84d20fc1-f559-4506-8cda-8c9c242e8369",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Success', () => {",
+									"    pm.response.to.have.status(201);",
+									"    pm.expect(res.success).to.equal(true);",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.post.id).to.be.at.least(10);",
+									"});",
+									"",
+									"//Store generated Post ID for reuse in subsequent tests",
+									"var pid = res.post.id;",
+									"pm.collectionVariables.set(\"PostID\", pid);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Test Title\",\n\t\"contents\": \"Test Contents\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /api/posts (valid)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"Test Title\",\n\t\"contents\": \"Test Contents\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21-sQerNgkHWuRJHumr75w4YYs22x8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 06:20:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"post\": {\n        \"id\": 10\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "POST /api/posts/:id/comments (missing text)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "436b995e-3b63-41da-a602-8b971eaeb864",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Failure', () => {",
+									"    pm.response.to.have.status(400);",
+									"    pm.expect(res.success).to.equal(false);",
+									"});",
+									"",
+									"pm.test('Data Size', () => {",
+									"    pm.expect(res.comment).to.be.undefined;",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.errorMessage).to.equal(\"Please provide text for the comment.\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/{{PostID}}/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"{{PostID}}",
+								"comments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /api/posts/:id/comments (missing text)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/{{PostID}}/comments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"{{PostID}}",
+										"comments"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-Q21YrkMZ68sCm3j1II90tTbIRFs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 07:02:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"Please provide text for the comment.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST /api/posts/:id/comments (valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "436b995e-3b63-41da-a602-8b971eaeb864",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Success', () => {",
+									"    pm.response.to.have.status(201);",
+									"    pm.expect(res.success).to.equal(true);",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.comment.id).to.be.at.least(13);",
+									"});",
+									"",
+									"//Store generated Comment ID for reuse in subsequent tests",
+									"var cid = res.comment.id;",
+									"pm.collectionVariables.set(\"CommentID\", cid);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"Test Comment\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/{{PostID}}/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"{{PostID}}",
+								"comments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST /api/posts/:id/comments (valid)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"text\": \"Test Comment\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/{{PostID}}/comments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"{{PostID}}",
+										"comments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24-MEaqJI8NT29vjDTBKLv1PnaCIoo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 08:35:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"comment\": {\n        \"id\": 13\n    }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "GET /api/posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b1876bfc-1bcb-4802-bc06-71e8c6c921aa",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Success', () => {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(res.success).to.equal(true);",
+									"});",
+									"",
+									"pm.test('Data Size', () => {",
+									"    pm.expect(res.posts.length).to.be.at.least(9);",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.posts[0].title).to.equal(\"I wish the ring had never come to me. I wish none of this had happened.\");",
+									"    pm.expect(res.posts[1].title).to.equal(\"I think we should get off the road. Get off the road! Quick!\");",
+									"    pm.expect(res.posts[2].title).to.equal(\"I made a promise, Mr Frodo. A promise. \\\"Don't you leave him Samwise Gamgee.\\\" And I don't mean to. I don't mean to.\");",
+									"    pm.expect(res.posts[3].title).to.equal(\"N-nothing important. That is, I heard a great deal about a ring, a Dark Lord, and something about the end of the world, but... Please, Mr. Gandalf, sir, don't hurt me. Don't turn me into anything... unnatural.\");",
+									"    pm.expect(res.posts[4].title).to.equal(\"You need people of intelligence on this sort of mission...quest...thing.\");",
+									"    pm.expect(res.posts[5].title).to.equal(\"All you have to do is decide what to do with the time that is given to you.\");",
+									"    pm.expect(res.posts[6].title).to.equal(\"Do not be so quick to deal out death and judgement. Even the very wise do not see all ends.\");",
+									"    pm.expect(res.posts[7].title).to.equal(\"Fool of a Took! Throw yourself in next time and rid us of your stupidity!\");",
+									"    pm.expect(res.posts[8].title).to.equal(\"I will be dead before I see the ring in the hands of an elf! Never trust an elf!\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /api/posts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1980"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7bc-uGOEydlYJse5ZXc4fCq9CwWb0XM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 06:04:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"posts\": [\n        {\n            \"id\": 1,\n            \"title\": \"I wish the ring had never come to me. I wish none of this had happened.\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"I think we should get off the road. Get off the road! Quick!\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        },\n        {\n            \"id\": 3,\n            \"title\": \"I made a promise, Mr Frodo. A promise. \\\"Don't you leave him Samwise Gamgee.\\\" And I don't mean to. I don't mean to.\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        },\n        {\n            \"id\": 4,\n            \"title\": \"N-nothing important. That is, I heard a great deal about a ring, a Dark Lord, and something about the end of the world, but... Please, Mr. Gandalf, sir, don't hurt me. Don't turn me into anything... unnatural.\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        },\n        {\n            \"id\": 5,\n            \"title\": \"You need people of intelligence on this sort of mission...quest...thing.\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        },\n        {\n            \"id\": 6,\n            \"title\": \"All you have to do is decide what to do with the time that is given to you.\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        },\n        {\n            \"id\": 7,\n            \"title\": \"Do not be so quick to deal out death and judgement. Even the very wise do not see all ends.\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        },\n        {\n            \"id\": 8,\n            \"title\": \"Fool of a Took! Throw yourself in next time and rid us of your stupidity!\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        },\n        {\n            \"id\": 9,\n            \"title\": \"I will be dead before I see the ring in the hands of an elf! Never trust an elf!\",\n            \"contents\": \"Guess who said this\",\n            \"created_at\": \"2020-01-20 05:58:55\",\n            \"updated_at\": \"2020-01-20 05:58:55\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "GET /api/posts/:id (not found)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "133dafd8-cfda-4da0-9b8a-3190d8c83402",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Failure', () => {",
+									"    pm.response.to.have.status(404);",
+									"    pm.expect(res.success).to.equal(false);",
+									"});",
+									"",
+									"pm.test('Data Size', () => {",
+									"    pm.expect(res.post).to.be.undefined;",
+									"});",
+									"",
+									"pm.test('Error Message', () => {",
+									"    pm.expect(res.errorMessage).to.equal(\"The post with the specified ID does not exist.\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /api/posts/:id (not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-YXlFJpy0LKPAkDpiyv1m57SqUOw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 06:25:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"The post with the specified ID does not exist.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET /api/posts/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a935735f-f00c-49cb-b097-afdfcc2f6613",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Success', () => {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(res.success).to.equal(true);",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.post.title).to.equal(\"Test Title\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/{{PostID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"{{PostID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /api/posts/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/{{PostID}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"{{PostID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "151"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"97-2P/ge68n2NVJZMTI4KHx0boSI7s\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 06:26:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"post\": {\n        \"id\": 10,\n        \"title\": \"Test Title\",\n        \"contents\": \"Test Contents\",\n        \"created_at\": \"2020-01-20 06:20:30\",\n        \"updated_at\": \"2020-01-20 06:20:30\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GET /api/posts/:id/comments (not found)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "133dafd8-cfda-4da0-9b8a-3190d8c83402",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Failure', () => {",
+									"    pm.response.to.have.status(404);",
+									"    pm.expect(res.success).to.equal(false);",
+									"});",
+									"",
+									"pm.test('Data Size', () => {",
+									"    pm.expect(res.post).to.be.undefined;",
+									"});",
+									"",
+									"pm.test('Error Message', () => {",
+									"    pm.expect(res.errorMessage).to.equal(\"The post with the specified ID does not exist.\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/999/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"999",
+								"comments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /api/posts/:id/comments (not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/999/comments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"999",
+										"comments"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-YXlFJpy0LKPAkDpiyv1m57SqUOw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 06:41:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"The post with the specified ID does not exist.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET /api/posts/:id/comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a935735f-f00c-49cb-b097-afdfcc2f6613",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Success', () => {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(res.success).to.equal(true);",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.comments).to.not.be.undefined;",
+									"    var commentCount = res.comments.length",
+									"    pm.expect(res.comments[commentCount-1].text).to.equal(\"Test Comment\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/{{PostID}}/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"{{PostID}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/posts/comments/:id (not found)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "133dafd8-cfda-4da0-9b8a-3190d8c83402",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Failure', () => {",
+									"    pm.response.to.have.status(404);",
+									"    pm.expect(res.success).to.equal(false);",
+									"});",
+									"",
+									"pm.test('Data Size', () => {",
+									"    pm.expect(res.comment).to.be.undefined;",
+									"});",
+									"",
+									"pm.test('Error Message', () => {",
+									"    pm.expect(res.errorMessage).to.equal(\"The comment with the specified ID does not exist.\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/comments/999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"comments",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /api/posts/comments/:id (not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/comments/999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"comments",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-nmAvrlhtUanSq/fi/motBMauqbc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 07:44:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"The comment with the specified ID does not exist.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET /api/posts/comments/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "133dafd8-cfda-4da0-9b8a-3190d8c83402",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Success', () => {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(res.success).to.equal(true);",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.comment.text).to.equal(\"Test Comment\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/comments/{{CommentID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"comments",
+								"{{CommentID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET /api/posts/comments/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/comments/{{CommentID}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"comments",
+										"{{CommentID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a1-ialZqeEnrxvxr7ZT473y7K6XIBs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 07:47:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"comment\": {\n        \"id\": 15,\n        \"text\": \"Test Comment\",\n        \"created_at\": \"2020-01-20 07:45:19\",\n        \"updated_at\": \"2020-01-20 07:45:19\",\n        \"post_id\": 10,\n        \"post\": \"Test Title\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "PUT /api/posts/:id (not found)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b849a9d-5d2f-4e2e-8525-e98fabc2ebd1",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Status: 404 Not Found', () => {",
+									"    pm.response.to.have.status(404);",
+									"    pm.expect(pm.response.status).to.equal(\"Not Found\");",
+									"});",
+									"",
+									"pm.test(\"Does not exist\", () => {",
+									"    pm.expect(pm.response.text()).to.include(\"The post with the specified ID does not exist.\");",
+									"});",
+									"",
+									"pm.test('Success=false', () => {",
+									"    pm.expect(res.success).to.be.false;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Test Title Updated\",\n\t\"contents\": \"Test Contents Updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /api/posts/:id (not found)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"Test Title Updated\",\n\t\"contents\": \"Test Contents Updated\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-YXlFJpy0LKPAkDpiyv1m57SqUOw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 08:20:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"The post with the specified ID does not exist.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT /api/posts/:id (missing contents)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "afa213a4-8aad-44b4-baa1-50a06be4fe81",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Status: 400 Bad Request', () => {",
+									"    pm.response.to.have.status(400);",
+									"    pm.expect(pm.response.status).to.equal(\"Bad Request\");",
+									"});",
+									"",
+									"pm.test(\"Does not exist\", () => {",
+									"    pm.expect(pm.response.text()).to.include(\"Please provide title and contents for the post.\");",
+									"});",
+									"",
+									"pm.test('Success=false', () => {",
+									"    pm.expect(res.success).to.be.false;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Test Title Updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/{{PostID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"{{PostID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /api/posts/:id (missing contents)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"Test Title Updated\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/{{PostID}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"{{PostID}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-JMDiJSvAyHv2SbS8ro05Wv0jIwU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 08:20:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"Please provide title and contents for the post.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT /api/posts/:id (missing title)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d5cd2b5-aadf-4cc7-8d92-abc722298c14",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Status: 400 Bad Request', () => {",
+									"    pm.response.to.have.status(400);",
+									"    pm.expect(pm.response.status).to.equal(\"Bad Request\");",
+									"});",
+									"",
+									"pm.test(\"Does not exist\", () => {",
+									"    pm.expect(pm.response.text()).to.include(\"Please provide title and contents for the post.\");",
+									"});",
+									"",
+									"pm.test('Success=false', () => {",
+									"    pm.expect(res.success).to.be.false;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"contents\": \"Test Contents Updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/{{PostID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"{{PostID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /api/posts/:id (missing title)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"contents\": \"Test Contents Updated\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/{{PostID}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"{{PostID}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-JMDiJSvAyHv2SbS8ro05Wv0jIwU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 08:21:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"Please provide title and contents for the post.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT /api/posts/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ba7c0b18-8c9b-4035-a568-56f7abaf3129",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Success', () => {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(res.success).to.equal(true);",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.postIdUpdated).to.equal(pm.collectionVariables.get('PostID'));",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Test Title Updated\",\n\t\"contents\": \"Test Contents Updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/{{PostID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"{{PostID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT /api/posts/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\": \"Test Title Updated\",\n\t\"contents\": \"Test Contents Updated\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/{{PostID}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"{{PostID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-nyKnEhtdOJH9TVWDY4mwqOYEOJs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 08:21:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"postIdUpdated\": 10\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "DELETE /api/posts/:id (not found)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a76ad4c8-5756-43a8-a71d-98c639ad7158",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Status: 404 Not Found', () => {",
+									"    pm.response.to.have.status(404);",
+									"    pm.expect(pm.response.status).to.equal(\"Not Found\");",
+									"});",
+									"",
+									"pm.test(\"Does not exist\", () => {",
+									"    pm.expect(pm.response.text()).to.include(\"The post with the specified ID does not exist.\");",
+									"});",
+									"",
+									"pm.test('Success=false', () => {",
+									"    pm.expect(res.success).to.be.false;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE /api/posts/:id (not found)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/999",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-YXlFJpy0LKPAkDpiyv1m57SqUOw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 08:30:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"errorMessage\": \"The post with the specified ID does not exist.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE /api/posts/:id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9412206e-ff39-4881-a557-4eb1e3307710",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ff5472e0-ad9e-406b-84d4-0b1cd9ac8bec",
+								"exec": [
+									"var res = pm.response.json();",
+									"",
+									"pm.test('Success', () => {",
+									"    pm.response.to.have.status(200);",
+									"    pm.expect(res.success).to.equal(true);",
+									"});",
+									"",
+									"pm.test('Data Value(s)', () => {",
+									"    pm.expect(res.postIdRemoved).to.equal(pm.collectionVariables.get('PostID'));",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/{{PostID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"{{PostID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE /api/posts/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/posts/{{PostID}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"posts",
+										"{{PostID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-VysC9cgEdOhCHL3A+KUNhIc5K04\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2020 08:30:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"postIdRemoved\": 10\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "81005885-9980-4e6e-b9bf-0043d8f3b03c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d4f0b23e-bbbf-4e4e-9654-506bc8e3d5e8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d849c35f-0ab0-4876-ba27-a81eb4a8f2b2",
+			"key": "PostID",
+			"value": 10,
+			"type": "number"
+		},
+		{
+			"id": "76b130bc-c9fb-4925-b2ab-aa93c8b1480c",
+			"key": "CommentID",
+			"value": 14,
+			"type": "number"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
