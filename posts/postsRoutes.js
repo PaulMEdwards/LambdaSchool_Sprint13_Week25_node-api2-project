@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
     - If there's an error while saving the _post_:
       - cancel the request.
       - respond with HTTP status code `500` (Server Error).
-      - return the following JSON object: `{ error: "There was an error while saving the post to the database" }`.
+      - return the following JSON object: `{ errorMessage: "There was an error while saving the post to the database" }`.
   */
   //#endregion Post Posts Summary
 
@@ -51,7 +51,7 @@ router.post('/:postId/comments', (req, res) => {
 
     - If the _post_ with the specified `id` is not found:
       - return HTTP status code `404` (Not Found).
-      - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
+      - return the following JSON object: `{ errorMessage: "The post with the specified ID does not exist." }`.
 
     - If the request body is missing the `text` property:
       - cancel the request.
@@ -66,7 +66,7 @@ router.post('/:postId/comments', (req, res) => {
     - If there's an error while saving the _comment_:
       - cancel the request.
       - respond with HTTP status code `500` (Server Error).
-      - return the following JSON object: `{ error: "There was an error while saving the comment to the database" }`.
+      - return the following JSON object: `{ errorMessage: "There was an error while saving the comment to the database" }`.
   */
   //#endregion Post Comments Summary
 
@@ -108,7 +108,7 @@ router.get('/', (req, res) => {
     - If there's an error in retrieving the _posts_ from the database:
       - cancel the request.
       - respond with HTTP status code `500`.
-      - return the following JSON object: `{ error: "The posts information could not be retrieved." }`.
+      - return the following JSON object: `{ errorMessage: "The posts information could not be retrieved." }`.
   */
   //#endregion Get Posts Summary
 
@@ -131,12 +131,12 @@ router.get('/:postId', (req, res) => {
 
     - If the _post_ with the specified `id` is not found:
       - return HTTP status code `404` (Not Found).
-      - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
+      - return the following JSON object: `{ errorMessage: "The post with the specified ID does not exist." }`.
 
     - If there's an error in retrieving the _post_ from the database:
       - cancel the request.
       - respond with HTTP status code `500`.
-      - return the following JSON object: `{ error: "The post information could not be retrieved." }`.
+      - return the following JSON object: `{ errorMessage: "The post information could not be retrieved." }`.
   */
   //#endregion Get Post by ID Summary
 
@@ -165,12 +165,12 @@ router.get('/:postId/comments', (req, res) => {
 
     - If the _post_ with the specified `id` is not found:
       - return HTTP status code `404` (Not Found).
-      - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
+      - return the following JSON object: `{ errorMessage: "The post with the specified ID does not exist." }`.
 
     - If there's an error in retrieving the _comments_ from the database:
       - cancel the request.
       - respond with HTTP status code `500`.
-      - return the following JSON object: `{ error: "The comments information could not be retrieved." }`.
+      - return the following JSON object: `{ errorMessage: "The comments information could not be retrieved." }`.
   */
   //#endregion Get Comments by Post ID Summary
 
@@ -206,12 +206,12 @@ router.get('/comments/:commentId', (req, res) => {
 
     - If the _comment_ with the specified `id` is not found:
       - return HTTP status code `404` (Not Found).
-      - return the following JSON object: `{ message: "The comment with the specified ID does not exist." }`.
+      - return the following JSON object: `{ errorMessage: "The comment with the specified ID does not exist." }`.
 
     - If there's an error in retrieving the _comment_ from the database:
       - cancel the request.
       - respond with HTTP status code `500`.
-      - return the following JSON object: `{ error: "The comment information could not be retrieved." }`.
+      - return the following JSON object: `{ errorMessage: "The comment information could not be retrieved." }`.
   */
   //#endregion Get Comment by ID Summary
 
@@ -236,30 +236,11 @@ router.get('/comments/:commentId', (req, res) => {
 router.put('/:postId', (req, res) => {
   //#region Update Post by ID Summary
   /*
-    When the client makes a `DELETE` request to `/:id`:
-
-    - If the _post_ with the specified `id` is not found:
-      - return HTTP status code `404` (Not Found).
-      - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
-
-    - If there's an error in removing the _post_ from the database:
-      - cancel the request.
-      - respond with HTTP status code `500`.
-      - return the following JSON object: `{ error: "The post could not be removed" }`.
-  */
-  //#endregion Update Post by ID Summary
-
-  console.log(`PUT ${apiBase}/:postId update():\n`, req);
-});
-
-router.delete('/:postId', (req, res) => {
-  //#region Delete Post by ID Summary
-  /*
     When the client makes a `PUT` request to `/:id`:
 
     - If the _post_ with the specified `id` is not found:
       - return HTTP status code `404` (Not Found).
-      - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
+      - return the following JSON object: `{ errorMessage: "The post with the specified ID does not exist." }`.
 
     - If the request body is missing the `title` or `contents` property:
       - cancel the request.
@@ -269,12 +250,31 @@ router.delete('/:postId', (req, res) => {
     - If there's an error when updating the _post_:
       - cancel the request.
       - respond with HTTP status code `500`.
-      - return the following JSON object: `{ error: "The post information could not be modified." }`.
+      - return the following JSON object: `{ errorMessage: "The post information could not be modified." }`.
 
     - If the post is found and the new information is valid:
       - update the post document in the database using the new information sent in the `request body`.
       - return HTTP status code `200` (OK).
       - return the newly updated _post_.
+  */
+  //#endregion Update Post by ID Summary
+
+  console.log(`PUT ${apiBase}/:postId update():\n`, req);
+});
+
+router.delete('/:postId', (req, res) => {
+  //#region Delete Post by ID Summary
+  /*
+    When the client makes a `DELETE` request to `/:id`:
+
+    - If the _post_ with the specified `id` is not found:
+      - return HTTP status code `404` (Not Found).
+      - return the following JSON object: `{ errorMessage: "The post with the specified ID does not exist." }`.
+
+    - If there's an error in removing the _post_ from the database:
+      - cancel the request.
+      - respond with HTTP status code `500`.
+      - return the following JSON object: `{ errorMessage: "The post could not be removed" }`.
   */
   //#endregion Delete Post by ID Summary
 
