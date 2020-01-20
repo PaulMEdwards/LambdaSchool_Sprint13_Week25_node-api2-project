@@ -259,7 +259,31 @@ router.put('/:postId', (req, res) => {
   */
   //#endregion Update Post by ID Summary
 
-  console.log(`PUT ${apiBase}/:postId update():\n`, req);
+  const { postId } = req.params;
+
+  // console.log(`PUT ${apiBase}/:postId update():\n`, req);
+
+  if (!req.body.title || !req.body.contents) {
+    res.status(400).json({ success: false, errorMessage: "Please provide title and contents for the post." });
+  } else {
+    db.findById(postId)
+      .then(post => {
+        if (post) {
+          db.update(postId, req.body)
+          .then(postIdUpdated => {
+            console.log(`PUT /api/posts/:id update(${postId}): \n`, postIdUpdated);
+            if (postIdUpdated) {
+              res.status(200).json({ success: true, postIdUpdated: parseInt(postId, 10) });
+            }
+          })
+          .catch(err => {
+            res.status(500).json({ success: false, errorMessage: "The post information could not be modified." });
+          });
+        } else {
+          res.status(404).json({ success: false, errorMessage: "The post with the specified ID does not exist." });
+        }
+      });
+  }
 });
 
 router.delete('/:postId', (req, res) => {
